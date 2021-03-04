@@ -1,4 +1,4 @@
-package Day2.array;
+package day2;
 
 public class ArrayMinMax {
 
