@@ -6,7 +6,7 @@ class Bank {
 	}
 }
 
-class Sbi extends Bank {
+class Sbi3 extends Bank {
 	void rateOfInterest() {
 		System.out.println("SBI 4%");
 	}
@@ -30,14 +30,14 @@ public class UpcastingDemo {
 	public static void main(String[] args) {
 		//upcasting --> Will call only overridden method
 		//				and Parent functions
-		Bank sbi = new Sbi();
+		Bank sbi = new Sbi3();
 		sbi.rateOfInterest();
 		//sbi.offer();	//Does not work
 		
 		Bank ax = new Axis();
 		ax.rateOfInterest();
 		
-		Sbi s = new Sbi();
+		Sbi3 s = new Sbi3();
 		s.offer();
 	}
 
