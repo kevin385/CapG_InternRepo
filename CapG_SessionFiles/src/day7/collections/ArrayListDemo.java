@@ -42,6 +42,8 @@ public class ArrayListDemo {
 		o.clear();
 		System.out.println("Size after clearing: "+o.size());
 		System.out.println("After clearing: "+o);
+		
+		
 	}
 
 }
