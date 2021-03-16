@@ -1,4 +1,4 @@
-package day9.multithreading;
+package day10.multithreading;
 
 class Task1 extends Thread {
 	public void run() {	//must be public
@@ -9,7 +9,7 @@ class Task1 extends Thread {
 	
 }
 
-class Task2 extends Thread {
+class Task2 implements Runnable {
 	public void run() {
 		for (int i=20;i<=30;i++) {
 			System.out.println("Task2: "+i);
@@ -35,7 +35,10 @@ public class MultitaskingDemo {
 		Task3 t3 = new Task3();
 		
 		t1.start();
-		t2.start();
+
+		Thread t2Thread = new Thread(t2);
+		t2Thread.start();
+		
 		t3.start();
 		
 	}
