@@ -2,6 +2,7 @@ package lab9;
 
 import java.util.*;
 
+@FunctionalInterface
 interface LambdaClass {
 	String stringSpace(String str);
 }

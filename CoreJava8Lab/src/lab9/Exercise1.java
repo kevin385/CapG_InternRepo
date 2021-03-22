@@ -2,6 +2,7 @@ package lab9;
 
 import java.util.*;
 
+@FunctionalInterface
 interface lambdaFunc {
 	double powerFunc(double x, double y);
 }
