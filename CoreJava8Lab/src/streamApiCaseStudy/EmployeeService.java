@@ -91,7 +91,7 @@ public class EmployeeService {
 		System.out.println("Enter First Name & Last Name of Manager:");
 		String firstName = sc.next();
 		String lastName = sc.next();
-		//elist.stream()
+		elist.stream().filter(e->e.getFirstName().equalsIgnoreCase(firstName) && e.getLastName().equalsIgnoreCase(lastName)).forEach(s-> s.getEmployeeId());
 		sc.close();
 	}
 	
