@@ -3,13 +3,24 @@ package com.cg.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name="Product2023")
 public class Product {
 	@Id
 	private int id;
+	
+	
+	@Email(message = "Should be proper email format")
+	@NotEmpty(message = "name should not be empty")
 	private String name;
+	
+	@NotEmpty(message = "category should not be empty")
+	@Size(min = 3, max = 5, message = "It should be between 3 to 5")
 	private String category;
 	private int price;
 	

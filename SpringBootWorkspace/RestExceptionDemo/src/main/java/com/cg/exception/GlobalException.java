@@ -16,4 +16,8 @@ public class GlobalException {
 	public ResponseEntity<Object> handleException(PriceException exception) {
 		return new ResponseEntity<Object>(exception.getMessage(), HttpStatus.BAD_REQUEST);
 	}
+	
+	public ResponseEntity<Object> handleException(ValidationException e) {
+		return new ResponseEntity<Object>(e.getMessages(),HttpStatus.BAD_REQUEST);
+	}
 }

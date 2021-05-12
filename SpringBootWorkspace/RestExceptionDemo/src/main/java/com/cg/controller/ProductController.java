@@ -19,6 +19,9 @@ import com.cg.exception.IdNotFoundException;
 import com.cg.exception.PriceException;
 import com.cg.service.ProductServiceI;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+@Api("Product Controller")
 @RestController
 @RequestMapping(value="/product")
 public class ProductController {
@@ -26,6 +29,7 @@ public class ProductController {
 	@Autowired
 	ProductServiceI productService;
 	
+	@ApiOperation(value="Add new product")
 	@PostMapping(value="/addProduct")
 	public ResponseEntity<String> addProduct(@RequestBody Product product) throws PriceException {
 		try {
@@ -36,12 +40,14 @@ public class ProductController {
 		}
 		
 	}
-	
+
+	@ApiOperation(value="Get all the product")
 	@GetMapping(value="/getAll")
 	public List<Product> getAllProducts() {
 		return productService.getAllProducts();
 	}
-	
+
+	@ApiOperation(value="Get product by ID")
 	@GetMapping(value="/getById/{id}")
 	public Product getProductById(@PathVariable int id) throws IdNotFoundException {
 		try {

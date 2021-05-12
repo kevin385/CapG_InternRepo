@@ -5,16 +5,19 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.entity.Employee;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/employeeApi")
 public class EmployeeController {
@@ -61,4 +64,17 @@ public class EmployeeController {
 		}
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
+	
+	@PutMapping(value="updateEmployee/{empid}")
+    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee,@PathVariable int empid)
+    {
+        System.out.println("before update :"+empList.get(empid-1));
+
+        empList.set(empid-1, employee);
+        System.out.println("after update :"+empList.get(empid-1));
+        
+        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+
+    }
+	
 }
